@@ -5,8 +5,8 @@ phone: (45) 9985-6510
 description: > # this means to ignore newlines until "baseurl:"
   Fabíola Nogueira - Professional Makeup Artist Makeup, Makeup, Hair, Photos, Weddings.
 baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://www.fabiolanogueira.com.br" # the base hostname & protocol for your site
-fullurl: "http://www.fabiolanogueira.com.br/"
+url: "http://www.fabiolanogueira.com" # the base hostname & protocol for your site
+fullurl: "http://www.fabiolanogueira.com/"
 facebook_username: FabiolaNogueiraMakeUpStudio
 author: Fabíola Nogueira
 
