@@ -1,0 +1,78 @@
+---
+layout: blog
+selected_menu: blog
+---
+
+{% assign sorted_pages = site.posts | sort:"date" | limit_offset:site.paginate,paginator.page %}
+
+{% for post in sorted_pages %}
+
+<article class="ct-articleBox ct-articleBox--default">
+    <div class="ct-articleBox-media">
+        <img src="{{ (post.id | post_image) | prepend: site.baseurl }}" alt="" data-no-retina />
+    </div>
+    <div class="ct-articleBox-titleBox">
+        <div class="ct-articleBox-meta">
+            <span>{{ post.date | date: "%d/%m/%Y" }}</span>
+            <span>
+                {% for category in post.categories %}
+                {{category | capitalize}}{% if forloop.last == false %}, {% endif %}
+                {% endfor %}
+            </span>
+        </div>
+        <a href="{{ post.url | prepend: site.baseurl }}"><h4>{{post.title}}</h4></a>
+    </div>
+    <div class="ct-articleBox-description">
+        {{post.excerpt}}
+    </div>
+    <a class="ct-articleBox-button" href="{{ post.url | prepend: site.baseurl }}">Leia mais<i class="fa fa-angle-right"></i></a>
+
+    <div class="clearfix"></div>
+</article>
+
+{% endfor %}
+
+<div class="ct-pagination">
+    <div class="col-md-2">
+        <ul class="pager text-left">
+            <li>
+                {% if paginator.previous_page %}
+
+                    {% if paginator.previous_page == 1 %}
+                    <a href="{{ '/blog/' | prepend: site.baseurl | replace: '//', '/' }}index.html"><i class="fa fa-angle-left"></i>  Anterior</a>
+                    {% else %}
+                    <a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', paginator.previous_page }}index.html"><i class="fa fa-angle-left"></i>  Anterior</a>
+                    {% endif %}
+
+                {% else %}
+                <a href="#" style="color: #333333 !important; cursor: default;"><i class="fa fa-angle-left"></i>  Anterior</a>
+                {% endif %}
+            </li>
+        </ul>
+    </div>
+    <div class="col-md-8 text-center">
+        <ul class="pagination pagination-lg">
+            {% for page in (1..paginator.total_pages) %}
+                {% if page == paginator.page %}
+                    <li class="active"><a href="#" onclick="return false;">{{page}}</a></li>
+                {% elsif page == 1 %}
+                    <li><a href="{{ '/blog/' | prepend: site.baseurl | replace: '//', '/' }}index.html">{{page}}</a></li>
+                {% else %}
+                    <li><a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}index.html">{{page}}</a></li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="col-md-2">
+        <ul class="pager text-right">
+            <li>
+                {% if paginator.next_page %}
+                <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}index.html">Próxima  <i class="fa fa-angle-right"></i></a>
+                {% else %}
+                <a href="#" style="color: #333333 !important; cursor: default;">Próxima  <i class="fa fa-angle-right"></i></a>
+                {% endif %}
+            </li>
+        </ul>
+    </div>
+</div>
+

@@ -1,0 +1,73 @@
+---
+layout: root
+---
+<nav class="navbar ct-navbar--transparent ct-navbar--stickyToTop ct-navbar--withTopbar" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="{{ '/' | prepend: site.baseurl }}">
+                <img class="ct-logo-navbar--transparent" src="{{ '/assets/images/logo.png' | prepend: site.baseurl }}"  alt="">
+                <img class="ct-logo-navbar--solid" src="{{ '/assets/images/logo-solid.png' | prepend: site.baseurl }}"  alt="">
+            </a>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="{{ '/' | prepend: site.baseurl }}">Início</a></li>
+                <li><a class="ct-navbar-item--active" href="{{ '/blog/index.html' | prepend: site.baseurl }}">Blog</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<header class="ct-mediaSection ct-section" id="header" data-stellar-background-ratio="0.3" data-height="200" data-type="parallax" data-bg-image="{{ '/assets/images/makeup-home-main-bg.jpg' | prepend: site.baseurl }}" data-bg-image-mobile="{{ '/assets/images/makeup-home-main-bg.jpg' | prepend: site.baseurl }}">
+</header>
+
+<section class="ct-mediaSection ct-decoration--type5-rotate ct-u-paddingBoth80 ct-blog" id="works">
+    <div class="container">
+        <header class="ct-pageSectionHeader text-center">
+            <h2 class="ct-js-animation--item ct-motive-text" data-when="enter" data-from="0" data-to="1" data-opacity="0" data-translatey="-50" >MEU</h2>
+            <h3 class="ct-js-animation--item ct-u-hdr3" data-when="enter" data-from="0" data-to="1" data-opacity="0" data-translatey="100">blog</h3>
+        </header>
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+
+
+                {{content}}
+
+            </div>
+            <div class="col-md-2"></div>
+            <!--
+            <div class="col-md-3 ct-js-sidebar">
+                <div class="row">
+                    <div class="col-sm-6 col-md-12">
+                        <section class="widget">
+                            <div class="widget-inner">
+                                <h4 class="text-uppercase">Categorias</h4>
+                                <ul>
+                                    {% for category in site.categories %}
+                                    <li class="current-cat">
+
+                                        <a href="#" title="View all posts filed under {{category | first | capitalize}}">{{category | first | capitalize}}<span class="ct-blogWidget-count"> (2)</span></a>
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </section>
+                    </div>
+                    <div class="col-sm-6 col-md-12">
+                        <section class="widget ct-widget-archives">
+                            <div class="widget-inner">
+                                <h4 class="text-uppercase">Tags</h4>
+                                <div class="tagcloud">
+                                    {% for tag in site.tags %}
+                                    <a href="#" title="">{{tag | first | capitalize}}</a>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+            -->
+        </div>
+    </div>
+</section>
